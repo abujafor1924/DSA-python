@@ -24,3 +24,7 @@ my_array=searching_array(arr,1)
 print(my_array)
 
 
+# deleting array
+arr.remove(1)
+print(arr)
+
