@@ -54,8 +54,8 @@ c=my_array.count(11)
 print(c)
 
 print("step-13")
-# s=my_array.tostring()
-# print(s)
+s=my_array.tostring()
+print(s)
 
 print("step-14")
 print(my_array[2:])
