@@ -7,7 +7,7 @@ def find_number(array,number):
     for i in range(len(array)):
         if array[i]== number:
             print(i)
-        
+
 
 
 find_number(my_array,12)
