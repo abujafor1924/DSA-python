@@ -16,7 +16,7 @@ class LinkList:
     # Add a new node at the end of the list
     def append(self, value):
         new_node = Node(value)
-        if self.head is None:        # If list is empty
+        if self.head is None:         # If list is empty
             self.head = new_node
             self.tail = new_node
         else:
@@ -27,7 +27,7 @@ class LinkList:
     # Add a new node at the beginning of the list
     def prepend(self, value):
         new_node = Node(value)
-        if self.head is None:        # If list is empty
+        if self.head is None:         # If list is empty
             self.head = new_node
             self.tail = new_node
         else:
@@ -58,7 +58,14 @@ class LinkList:
         self.length += 1
         return True
 
-    # Print the entire list in a readable format
+    # Traverse through the list and print each value on a new line
+    def traverse(self):
+        current_node = self.head        # Start from the head
+        while current_node is not None:
+            print(current_node.value)   # Print the current node's value
+            current_node = current_node.next  # Move to the next node
+
+    # String representation: 5->10->15->20->30
     def __str__(self):
         temp_node = self.head
         result = ''
@@ -84,18 +91,22 @@ new_linklist.prepend(5)
 
 # Insert 15 at index 2 (between 10 and 20)
 success = new_linklist.insert(2, 15)
-print("Insert status:", success)
+print("Insert status:", success)  # True
 
 # Try inserting at an invalid index
 fail = new_linklist.insert(10, 99)
-print("Insert status (invalid index):", fail)
+print("Insert status (invalid index):", fail)  # False
 
-# Print the entire list
+# Print the entire list using __str__
 print("Linked List:", new_linklist)  # Expected: 5->10->15->20->30
 
+# Print all node values line by line using traverse()
+print("\nTraverse each value:")
+new_linklist.traverse()
+
 # Print head and tail
-print("Head:", new_linklist.head.value)   # Output: 5
-print("Tail:", new_linklist.tail.value)   # Output: 30
+print("\nHead:", new_linklist.head.value)   # Output: 5
+print("Tail:", new_linklist.tail.value)     # Output: 30
 
 # Print the length
-print("Length:", new_linklist.length)     # Output: 5
+print("Length:", new_linklist.length)       # Output: 5
