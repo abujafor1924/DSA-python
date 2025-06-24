@@ -60,12 +60,21 @@ class LinkList:
 
     # Traverse through the list and print each value on a new line
     def traverse(self):
-        current_node = self.head        # Start from the head
+        current_node = self.head
         while current_node is not None:
-            print(current_node.value)   # Print the current node's value
-            current_node = current_node.next  # Move to the next node
+            print(current_node.value)
+            current_node = current_node.next
 
-    # String representation: 5->10->15->20->30
+    # Search for a value in the list
+    def search(self, target):
+        current_node = self.head
+        while current_node is not None:
+            if current_node.value == target:
+                return True
+            current_node = current_node.next
+        return False
+
+    # String representation: e.g. 5->10->15->20->30
     def __str__(self):
         temp_node = self.head
         result = ''
@@ -91,22 +100,26 @@ new_linklist.prepend(5)
 
 # Insert 15 at index 2 (between 10 and 20)
 success = new_linklist.insert(2, 15)
-print("Insert status:", success)  # True
+print("Insert status:", success)  # Output: True
 
 # Try inserting at an invalid index
 fail = new_linklist.insert(10, 99)
-print("Insert status (invalid index):", fail)  # False
+print("Insert status (invalid index):", fail)  # Output: False
 
 # Print the entire list using __str__
-print("Linked List:", new_linklist)  # Expected: 5->10->15->20->30
+print("Linked List:", new_linklist)  # Output: 5->10->15->20->30
 
-# Print all node values line by line using traverse()
+# Print all node values one by one
 print("\nTraverse each value:")
 new_linklist.traverse()
 
-# Print head and tail
+# Print head and tail values
 print("\nHead:", new_linklist.head.value)   # Output: 5
 print("Tail:", new_linklist.tail.value)     # Output: 30
 
-# Print the length
+# Print the length of the list
 print("Length:", new_linklist.length)       # Output: 5
+
+# ✅ Search test
+print("\nSearch for 15:", new_linklist.search(15))  # Output: True
+print("Search for 99:", new_linklist.search(99))    # Output: False
